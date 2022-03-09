@@ -35,13 +35,13 @@
 	  public static getInstance = (app: Express): MessageController => {
 			if (MessageController.messageController === null) {
 				 MessageController.messageController = new MessageController();
-				 app.post("/users/:sourceuid/messages/:targetuid",
+				 app.post("/api/users/:sourceuid/messages/:targetuid",
 					  MessageController.messageController.userSendsMessageToAnotherUser);
-				 app.delete("/users/:uid/messages/:mid",
+				 app.delete("/api/users/:uid/messages/:mid",
 					  MessageController.messageController.userDeletesAMessage);
-				 app.get("/users/:uid/messages/sent",
+				 app.get("/api/users/:uid/messages/sent",
 					  MessageController.messageController.findAllMessagesSent);
-				 app.get("/users/:uid/messages/receive",
+				 app.get("/api/users/:uid/messages/receive",
 					  MessageController.messageController.findAllMessagesReceived);
 			}
 			return MessageController.messageController;

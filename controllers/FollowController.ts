@@ -44,8 +44,8 @@ import { ParsedQs } from "qs";
 				 FollowController.followController = new FollowController();
 				 app.get("/api/users/:uid/followers", FollowController.followController.findAllFollowingUser);
 				 app.get("/api/users/:uid/follows", FollowController.followController.findAllFollowersForUser);
-				 app.post("/api/users/:uid/follows/:uid", FollowController.followController.userFollowsUser);
-				 app.delete("/api/users/:uid/unfollows/:uid", FollowController.followController.userUnFollowsUser);
+				 app.post("/api/users/:uid1/follows/:uid2", FollowController.followController.userFollowsUser);
+				 app.delete("/api/users/:uid1/unfollows/:uid2", FollowController.followController.userUnFollowsUser);
 			}
 			return FollowController.followController;
 	  }
@@ -60,7 +60,6 @@ import { ParsedQs } from "qs";
 	  FollowController.followDao.userFollowsUser(req.params.uid1, req.params.uid2).then(follows => res.json(follows))
 
 	  userUnFollowsUser= (req: Request, res: Response) =>
-	  FollowController.followDao.userFollowsUser(req.params.uid1, req.params.uid2).then(follows => res.json(follows))
+	  FollowController.followDao.userUnFollowsUser(req.params.uid1, req.params.uid2).then(follows => res.json(follows))
  
-	
  };
