@@ -42,7 +42,9 @@
 			return LikeController.likeController;
 	  }
  
-	  private constructor() {}
+	  private constructor() {
+		  
+	  }
  
 	  /**
 		* Retrieves all users that liked a tuit from the database
