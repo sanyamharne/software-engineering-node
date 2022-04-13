@@ -6,6 +6,7 @@ import MessageController from './controllers/MessageController';
 import BookmarkController from './controllers/BookmarkController';
 import FollowController from './controllers/FollowController';
 import mongoose from 'mongoose';
+const cors = require("cors");
 
 // Connnect to DB
 const connectionString = `mongodb+srv://admin:admin@cluster0.y7ooj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
@@ -13,6 +14,7 @@ mongoose.connect(connectionString)
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 app.get('/hello', (req: Request, res: Response) =>
     res.send('Hello World!'));

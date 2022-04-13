@@ -71,7 +71,9 @@
       */
      deleteUser = async (uid: string): Promise<any> =>
          UserModel.deleteOne({_id: uid});
- 
+    
+    deleteUsersByUsername = async (username: string): Promise<any> =>
+        UserModel.deleteMany({username});
      /**
       * Removes all users from the database. Useful for testing
       * @returns Promise To be notified when all users are removed from the
